@@ -22,7 +22,9 @@ services:
     environment:
      # Your hostname (REQUIRED)
       # - TAIGA_HOSTNAME=swarm01.dsv.net
-      - TAIGA_HOSTNAME=192.168.56.90:10121
+#      - TAIGA_HOSTNAME=192.168.56.90:10121
+      - TAIGA_HOSTNAME=192.168.56.31:10121
+#      - TAIGA_HOSTNAME=10.3.2.150:10121
       # usuario administrador: admin / 123123
 
       # Database settings
@@ -63,6 +65,10 @@ services:
     restart: always
     ports:
       - 10123:8080
+    links:
+      - postgres:db
+    command: php -S 0.0.0.0:8080 -t /var/www/html
+
 
 
 volumes:
