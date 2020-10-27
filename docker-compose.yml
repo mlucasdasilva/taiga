@@ -4,7 +4,8 @@ services:
   taiga:
     image: benhutchins/taiga
     ports:
-      - 10121:80
+      #- 10121:80
+      - 80:80
       # - 443:443 # To enable SSL, uncomment this line
     depends_on:
       - postgres
@@ -24,8 +25,9 @@ services:
       # - TAIGA_HOSTNAME=swarm01.dsv.net
       # - TAIGA_HOSTNAME=192.168.56.90:10121
       # - TAIGA_HOSTNAME=192.168.56.31:10121
-      - TAIGA_HOSTNAME=192.168.56.31.nip.io:10121
       # - TAIGA_HOSTNAME=10.3.2.150:10121
+      # - TAIGA_HOSTNAME=192.168.56.31.nip.io:10121
+      - TAIGA_HOSTNAME=${TAIGA_HOSTNAME}
       # usuario administrador: admin / 123123
 
       # Database settings
